@@ -12,8 +12,10 @@ app.post('/sms', (req, res) => {
   const twiml = new twilio.twiml.MessagingResponse();
   const { From, Body } = req.body;
 
-  if (body.toLowerCase() === 'gratitude') {
-  }
+  twiml.message(`Nugget`);
+  twiml.media(
+    `https://media.npr.org/assets/img/2017/05/09/10-piece-chicken-nuggets-ss_0_custom-db31f599b4b36050d9a26986abaf75c76c655f37-s800-c85.jpg`
+  );
 
   res.writeHead(200, { 'Content-Type': 'text/xml' });
   res.end(twiml.toString());
